@@ -23,7 +23,7 @@ def get_data():
 
     # itterate over all rows and set new column based
     # on the content of the catagorical time column
-    for n in xrange(N):
+    for n in range(N):
         t = int(X[n,D-1])
         X2[n,t+D-1] = 1
 
