@@ -8,8 +8,6 @@ def get_data():
     df = pd.read_csv('ecommerce_data.csv')
     data = df.as_matrix()
 
-    print(df.head())
-
     X = data[:, :-1]
     Y = data[:, -1]
 
@@ -33,3 +31,7 @@ def get_data():
 
 def get_binary_data():
     X, Y = get_data()
+    X2 = X[Y <= 1]
+    Y2 = Y[Y <= 1]
+
+    return X2, Y2
