@@ -17,5 +17,19 @@ def get_data():
     X[:,1] = normalise_numerical_data(X,1)
     X[:,2] = normalise_numerical_data(X,2)
 
+    # deal with catagorical data
+    N, D = X.shape
+    X2 = np.zeros((N, D+3))
+    # most of X is the same - just not catagorical data
+    X2[:,0:(D-1)] = X[:,0:(D-1)]
 
-get_data()
+    # itterate over all rows and set new column based
+    # on the content of the catagorical time column
+    for n in xrange(N):
+        t = int(X[n,D-1])
+        X2[n,t+D-1] = 1
+
+    return X2, Y
+
+def get_binary_data():
+    X, Y = get_data()
