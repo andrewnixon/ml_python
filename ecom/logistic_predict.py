@@ -15,3 +15,8 @@ def forward(X, W, b):
 
 P_Y_given_X = forward(X, W, b)
 predictions = np.round(P_Y_given_X)
+
+def classification_rate(Y, P):
+    return np.mean(Y == P)
+
+print("Score", classification_rate(Y, predictions))
